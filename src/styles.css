@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Kol";
+  src: url("/fonts/LiberationSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Kol";
+  src: url("/fonts/LiberationSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+
+@theme {
+  --color-bg: #07111c;
+  --color-surface: #102033;
+  --color-fg: #f4f7fb;
+  --color-muted: #9eb0c4;
+  --color-accent: #3dceb0;
+  --color-hot: #e8943a;
+  --color-line: #24384d;
+  --font-sans: "Kol", "Liberation Sans", sans-serif;
+  --radius: 0.9rem;
+}
+
+@layer base {
+  html, body { background: var(--color-bg); color: var(--color-fg); }
+  button:not(:disabled), [role="button"]:not(:disabled) { cursor: pointer; }
+}
+
+.hero {
+  position: relative;
+  min-height: 16rem;
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-line);
+}
+.hero img {
+  width: 100%;
+  height: 22rem;
+  object-fit: cover;
+  display: block;
+}
+.hero-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 20%, var(--color-bg) 96%);
+}
+.hero-copy {
+  position: absolute;
+  left: 1.25rem;
+  right: 1.25rem;
+  bottom: 1.25rem;
+}
+.day {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  padding: 0.9rem 1rem;
+}
+.price {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+}
+.price.lead {
+  background: color-mix(in srgb, var(--color-accent) 14%, var(--color-surface));
+  border-color: color-mix(in srgb, var(--color-accent) 45%, var(--color-line));
+}
+.switch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  padding: 0.3rem;
+}
+.switch button {
+  border: 0;
+  background: transparent;
+  color: var(--color-muted);
+  border-radius: 999px;
+  min-height: 2.75rem;
+  font-weight: 700;
+}
+.switch button[aria-pressed="true"] {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+.dl {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0 1.1rem;
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  font-weight: 700;
+  text-decoration: none;
+}
+.ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0 1.1rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-line);
+  color: var(--color-fg);
+  text-decoration: none;
+  background: var(--color-surface);
+}
